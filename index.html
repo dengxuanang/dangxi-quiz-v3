@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>党校题库刷题</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1 id="title">党校题库刷题 v3</h1>
+    <p>支持单选 / 多选 / 判断 / 填空 / 阅读背诵 · 错题自动收集 · 进度存在本机</p>
+  </header>
+
+  <!-- 控制面板 -->
+  <div class="panel" id="ctrl">
+    <div class="row wrap">
+      <label class="lab">题型</label>
+      <select id="typeSel">
+        <option value="all">全部</option>
+        <option value="single">单选题</option>
+        <option value="multiple">多选题</option>
+        <option value="judge">判断题</option>
+        <option value="fill">填空题</option>
+        <option value="read">阅读背诵</option>
+      </select>
+      <label class="lab">模式</label>
+      <div class="seg" id="modeSeg">
+        <button data-mode="seq" class="on">顺序</button>
+        <button data-mode="rand">随机</button>
+      </div>
+    </div>
+    <div class="row wrap" style="margin-top:10px">
+      <button class="btn" id="startBtn">开始刷题</button>
+      <button class="btn ghost" id="wrongBtn">只刷错题(<span id="wrongCnt">0</span>)</button>
+      <button class="btn ghost" id="resetBtn">重置进度</button>
+      <a class="link" href="admin.html" style="margin-left:auto">题库管理 »</a>
+    </div>
+    <div class="row wrap" id="resumeBox" style="margin-top:10px;display:none;background:#f0f7ff;border:1px solid #cfe3ff;border-radius:9px;padding:8px 10px">
+      <span class="lab" id="resumeText" style="flex:1"></span>
+      <button class="btn sm" id="resumeBtn">继续上次</button>
+      <button class="btn ghost sm" id="clearProgBtn">清除</button>
+    </div>
+  </div>
+
+  <!-- 统计 -->
+  <div class="panel" id="statPanel" style="display:none">
+    <div class="stats">
+      <div>进度 <b id="sProg">0/0</b></div>
+      <div>已答 <b id="sDone">0</b></div>
+      <div>正确率 <b id="sAcc">—</b></div>
+      <div>错题 <b id="sWrong">0</b></div>
+    </div>
+  </div>
+
+  <!-- 答题区 -->
+  <div class="panel" id="quiz" style="display:none">
+    <div class="qmeta">
+      <span class="qtype" id="qType">单选</span>
+      <span id="qIdx">第 1 题</span>
+    </div>
+    <div class="stem" id="qStem"></div>
+    <div id="qBody"></div>
+    <div class="feedback" id="feedback"></div>
+    <div class="navrow">
+      <button class="btn ghost sm" id="backBtn">返回题型选择</button>
+      <button class="btn ghost sm" id="prevBtn">上一题</button>
+      <button class="btn" id="submitBtn">提交 / 看答案</button>
+      <button class="btn blue" id="nextBtn" disabled>下一题</button>
+    </div>
+  </div>
+
+  <div class="panel empty" id="emptyTip" style="display:none">没有符合条件的题目，换个筛选或先去"题库管理"补充题目。</div>
+</div>
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
