@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>题库管理 · 党校刷题</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>题库管理</h1>
+    <p>增删改题目 / 重新上传题库 · 改完点“导出题库”替换 questions.json 并重新部署</p>
+  </header>
+
+  <div class="panel">
+    <div class="row wrap">
+      <label class="lab">题型</label>
+      <select id="fType">
+        <option value="all">全部</option>
+        <option value="single">单选题</option>
+        <option value="multiple">多选题</option>
+        <option value="judge">判断题</option>
+        <option value="fill">填空题</option>
+      </select>
+      <label class="lab"><input type="checkbox" id="fReview"> 仅看待核对</label>
+      <input type="text" id="fSearch" placeholder="搜索题干…" style="flex:1;min-width:160px">
+    </div>
+    <div class="row wrap" style="margin-top:10px">
+      <button class="btn" id="addBtn">+ 新增题目</button>
+      <button class="btn blue" id="exportBtn">导出题库(questions.js)</button>
+      <button class="btn ghost" id="importBtn">导入题库文件</button>
+      <input type="file" id="importFile" accept=".json" style="display:none">
+      <span id="cnt" class="lab" style="margin-left:auto"></span>
+    </div>
+    <div class="lab" style="margin-top:8px;font-size:12px;color:var(--muted)">
+      说明：选择题每行一个选项（可写“A.文本”或纯文本）；多选题答案填字母如 ABCD；填空题答案为空时填参考词，多个用“｜”分隔。
+    </div>
+  </div>
+
+  <div id="list"></div>
+</div>
+<script src="questions.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
