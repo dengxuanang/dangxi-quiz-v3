@@ -165,7 +165,7 @@ function render() {
     // 阅读背诵：不需要输入，直接看句子
     const tip = document.createElement("div");
     tip.className = "read-tip";
-    tip.textContent = "📖 阅读背诵题：读完后点下方"提交/看答案"标记已掌握";
+    tip.textContent = "📖 阅读背诵题：读完后点下方【提交/看答案】标记已掌握";
     body.appendChild(tip);
   } else if (q.type === "judge") {
     ["对", "错"].forEach((k) => body.appendChild(optEl(q, k, k)));
